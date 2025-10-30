@@ -1,0 +1,7 @@
+Commands:
+  Admin:
+    Command: "phantomvouchers"
+    Permission: "phantomvouchers.admin"
+    Aliases:
+      - "pvouchersadmin"
+      - "pvadmin"

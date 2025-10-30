@@ -1,0 +1,4 @@
+settings:
+  uuid-footprint: true # This will attach a UUID to the voucher item, making it non-stackable and can be tracked from another plugin.
+  interaction-cooldown: 500 # The cooldown in milliseconds between interactions to prevent spamming.
+  confirmation-window: 3000 # The time in milliseconds for the confirmation window (2-3 seconds).

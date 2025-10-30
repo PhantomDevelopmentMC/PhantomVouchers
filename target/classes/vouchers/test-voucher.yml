@@ -1,0 +1,49 @@
+item:
+  material: 'PAPER'
+  # The name of the item.
+  custom-model-data: 10001
+  display-name: '&3&l[&b&l!&3&l] &f&k| &b&lBattlePass &3&lPremium &f&k| '
+  # The lore of the item.
+  lore:
+    - '&8Voucher'
+    - "&7 Once redeemed, you will gain access to"
+    - "&7 the premium section of &f/battlepass&7 and"
+    - "&7 can claim premium rewards."
+    - ""
+    - "&b&lInformation:"
+    - "&3 ┣ &bDuration: &fSeason"
+    - "&3 ┣ &bType: &fOne-Time-Use"
+    - ""
+    - "&7&o((&f&o Right-Click &7&oto redeem this voucher ))"
+  # The commands to send.
+  enchantments: []
+  item-flags:
+    - 'HIDE_ENCHANTS'
+
+
+redeem-actions:
+  # The actions to execute when they right-click it.
+  - "[MESSAGE] &6&l[&e&l!&6&l] #9863E7&lP#AC79CB&lR#C08FAF&lE#D4A494&lM#E8BA78&lI#FCD05C&lU#ECD267&lM #CDD57C&lU#BDD786&lN#AED991&lL#9EDB9B&lO#8EDDA6&lC#7EDEB0&lK#6FE0BB&lE#5FE2C5&lD&e You now have access to the premium pass! &f/battlepass"
+  - "[COMMAND] battlepass givepremium %player%"
+  - "[SOUND] ENTITY_PLAYER_LEVELUP;1.0;1.0"
+  - "[TITLE] &a&lPremium Battle Pass Unlocked!;&7You can now claim premium rewards.;10;70;20"
+  - "[ACTION_BAR] &a&lYou have unlocked the &b&lPremium &a&lBattle Pass!"
+
+
+  # This one is slightly complex, can can be broken down as:
+  # - RANDOM 50: means there is a 50% chance of the following commands being executed
+  # - Generate a random number between 1 and 5, store it in a variable called random_amount (you can name it whatever you want)
+  # - Send a message to the player telling them how many diamonds they won
+  # - Give the player that many diamonds
+  - "[RANDOM] 50:[SET_VAR] random_amount %random_1_5%|[MESSAGE] &aYou won %var_random_amount% diamonds!|[COMMAND] give %player% diamond %var_random_amount%"
+
+settings:
+  blacklisted-worlds:
+    - 'world_the_end'
+
+  blacklisted-regions:
+    - 'afk-zone'
+
+  # permission-required: 'your.permission.here' also uncomment this.
+
+  additional-confirmation: true # If the player has to confirm redeeming the voucher. Double right-clicking it.

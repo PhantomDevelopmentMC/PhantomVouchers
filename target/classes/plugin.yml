@@ -1,0 +1,14 @@
+name: PhantomVouchers
+version: '1.0'
+main: me.fergs.phantomvouchers.PhantomVouchers
+api-version: '1.20'
+
+author: "f."
+
+soft-depend:
+  - WorldGuard
+  - PlaceholderAPI
+
+libraries:
+  - com.zaxxer:HikariCP:5.0.0
+  - org.slf4j:slf4j-api:1.7.36

@@ -1,0 +1,56 @@
+Messages:
+  RELOAD:
+    Sound:
+      Enable: true
+      Value: ENTITY_PLAYER_LEVELUP;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&6&l[&e&l!&6&l] &eConfiguration(s) have been reloaded.'
+
+  CONFIRMATION:
+    Sound:
+      Enable: true
+      Value: ENTITY_EXPERIENCE_ORB_PICKUP;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&eRight-click again to redeem this voucher &8(%voucher-display&8).'
+
+  BLACKLISTED_WORLD:
+    Sound:
+      Enable: true
+      Value: ENTITY_VILLAGER_NO;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&cYou cannot redeem this voucher in this world.'
+
+  BLACKLISTED_REGION:
+    Sound:
+      Enable: true
+      Value: ENTITY_VILLAGER_NO;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&cYou cannot redeem this voucher in this region.'
+
+  NO_PERMISSION:
+    Sound:
+      Enable: true
+      Value: ENTITY_VILLAGER_NO;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&cYou do not have permission to redeem this voucher.'
+
+  VOUCHER_NOT_FOUND:
+    Sound:
+      Enable: true
+      Value: ENTITY_VILLAGER_NO;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&cThis voucher is not recognized by the system.'
+
+  VOUCHER_RECEIVED:
+    Sound:
+      Enable: true
+      Value: ENTITY_PLAYER_LEVELUP;1.0;1.0
+    Message:
+      Enable: true
+      Value: '&2&l[&a&l!&2&l] &aYou received &f%amount%x %voucher-display%&a.'
