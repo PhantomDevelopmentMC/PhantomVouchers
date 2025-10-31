@@ -55,14 +55,15 @@ public class VoucherPreviewInventory extends PaginatedFastInv implements Listene
     }
 
     private ItemStack createDisplayItem(final VoucherItem voucher) {
-        final ItemBuilder builder = new ItemBuilder(voucher.getItem().getMaterial())
-                .setName(voucher.getItem().getDisplayName() != null ? voucher.getItem().getDisplayName() : voucher.getId())
-                .setCustomModelData(voucher.getItem().getCustomModelData())
-                .addItemFlags(voucher.getItem().getItemFlags());
+        final ItemBuilder builder = new ItemBuilder(voucher.getItem().getMaterial());
 
         if (voucher.getItem().getBase64() != null) {
             builder.setSkullTexture(voucher.getItem().getBase64());
         }
+
+        builder.setName(voucher.getItem().getDisplayName() != null ? voucher.getItem().getDisplayName() : voucher.getId())
+                .setCustomModelData(voucher.getItem().getCustomModelData())
+                .addItemFlags(voucher.getItem().getItemFlags());
 
         if (voucher.getItem().getEnchantments() != null) {
             voucher.getItem().getEnchantments().forEach(builder::addEnchant);

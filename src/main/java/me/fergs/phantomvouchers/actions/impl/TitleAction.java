@@ -23,9 +23,10 @@ public class TitleAction implements IAction {
     }
 
     @Override
-    public void execute(Player player, Map<String, String> variables) {
+    public boolean execute(Player player, Map<String, String> variables) {
         String parsedTitle = MessageParser.parse(title, player, variables);
         String parsedSubtitle = MessageParser.parse(subtitle, player, variables);
         player.sendTitle(Color.hex(parsedTitle), Color.hex(parsedSubtitle), fadeIn, stay, fadeOut);
+        return true;
     }
 }

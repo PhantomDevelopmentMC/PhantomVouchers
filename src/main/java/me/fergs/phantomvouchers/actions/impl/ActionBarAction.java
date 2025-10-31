@@ -15,8 +15,9 @@ public class ActionBarAction implements IAction {
     }
 
     @Override
-    public void execute(Player player, Map<String, String> variables) {
+    public boolean execute(Player player, Map<String, String> variables) {
         String parsed = MessageParser.parse(message, player, variables);
         player.sendActionBar(Color.hex(parsed));
+        return true;
     }
 }

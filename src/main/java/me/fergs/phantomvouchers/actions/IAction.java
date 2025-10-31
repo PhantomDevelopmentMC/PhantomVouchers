@@ -8,5 +8,5 @@ import java.util.Map;
  * Represents an action that can be executed for a player.
  */
 public interface IAction {
-    void execute(Player player, Map<String, String> variables);
+    boolean execute(Player player, Map<String, String> variables);
 }

@@ -16,8 +16,9 @@ public class SetVarAction implements IAction {
     }
 
     @Override
-    public void execute(Player player, Map<String, String> variables) {
+    public boolean execute(Player player, Map<String, String> variables) {
         String parsedValue = MessageParser.parse(valueExpression, player, variables);
         variables.put(varName, parsedValue);
+        return true;
     }
 }

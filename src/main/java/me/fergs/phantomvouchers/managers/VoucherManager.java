@@ -100,7 +100,7 @@ public final class VoucherManager {
             return new ActionBarAction(actionString.substring(13));
         } else if (actionString.startsWith("[RANDOM] ")) {
             String randomPart = actionString.substring(9).trim();
-            String[] options = randomPart.split(";");
+            String[] options = {randomPart};
             List<RandomAction.WeightedAction> weightedActions = new ArrayList<>();
             for (String option : options) {
                 String[] chanceActions = option.trim().split(":", 2);
@@ -157,7 +157,7 @@ public final class VoucherManager {
         List<ItemFlag> itemFlags = config.getStringList("item.item-flags").stream()
                 .map(flag -> ItemFlag.valueOf(flag.toUpperCase()))
                 .collect(Collectors.toList());
-        String base64 = config.getString("item.base64");
+        String base64 = config.getString("item.base-64");
 
         return new VoucherItem.ItemConfig(material, customModelData, displayName, lore, enchantments, itemFlags, base64);
     }

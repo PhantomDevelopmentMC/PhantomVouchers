@@ -1,5 +1,6 @@
 package me.fergs.phantomvouchers.actions.impl;
 
+import lombok.Getter;
 import me.fergs.phantomvouchers.actions.IAction;
 import org.bukkit.entity.Player;
 
@@ -7,7 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class RandomAction implements IAction {
+@Getter
+public final class RandomAction implements IAction {
     private final List<WeightedAction> options;
     private final Random random = new Random();
 
@@ -16,7 +18,7 @@ public class RandomAction implements IAction {
     }
 
     @Override
-    public void execute(Player player, Map<String, String> variables) {
+    public boolean execute(Player player, Map<String, String> variables) {
         int totalWeight = options.stream().mapToInt(WeightedAction::getChance).sum();
         int randomValue = random.nextInt(totalWeight);
 
@@ -27,9 +29,10 @@ public class RandomAction implements IAction {
                 for (IAction action : option.getActions()) {
                     action.execute(player, variables);
                 }
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public static class WeightedAction {

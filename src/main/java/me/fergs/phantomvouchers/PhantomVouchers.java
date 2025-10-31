@@ -9,6 +9,7 @@ import me.fergs.phantomvouchers.managers.ActionManager;
 import me.fergs.phantomvouchers.managers.MessageManager;
 import me.fergs.phantomvouchers.managers.VoucherManager;
 import me.fergs.phantomvouchers.utils.ConsoleUtil;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -46,6 +47,8 @@ public final class PhantomVouchers extends JavaPlugin {
         AdminCommands.build(this).register();
 
         this.playerInteractListener = new  PlayerInteractListener(this, actionManager);
+
+        new Metrics(this, 27794);
     }
 
     @Override

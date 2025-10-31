@@ -69,6 +69,16 @@ public class SkullUtils {
         item.setItemMeta(meta);
     }
 
+    public static void applyBase64Texture(SkullMeta meta, String base64) {
+        if (isModernVersion()) {
+            PlayerProfile profile = Bukkit.createProfile(UUID.randomUUID(), null);
+            profile.setProperty(new ProfileProperty("textures", base64));
+            meta.setPlayerProfile(profile);
+        } else {
+            setLegacyProfile(meta, base64);
+        }
+    }
+
     /**
      * Determines if the server is running Minecraft version 1.20.5 or higher.
      *
@@ -131,4 +141,3 @@ public class SkullUtils {
         return profile;
     }
 }
-

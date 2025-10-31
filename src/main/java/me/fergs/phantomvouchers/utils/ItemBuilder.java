@@ -55,11 +55,13 @@ public final class ItemBuilder {
      * @param base64 The base64 texture string.
      * @return The ItemBuilder.
      */
-    public ItemBuilder setSkullTexture(final String base64) {
+    public ItemBuilder setSkullTexture(String base64) {
         if (item.getType() == Material.PLAYER_HEAD && base64 != null) {
             this.item = SkullUtils.itemFromBase64(base64);
             this.meta = item.getItemMeta();
-            this.pdc = this.meta.getPersistentDataContainer();
+            if (this.meta != null) {
+                this.pdc = this.meta.getPersistentDataContainer();
+            }
         }
         return this;
     }

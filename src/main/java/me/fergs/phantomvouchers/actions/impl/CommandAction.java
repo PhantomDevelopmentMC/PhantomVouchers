@@ -15,8 +15,9 @@ public class CommandAction implements IAction {
     }
 
     @Override
-    public void execute(Player player, Map<String, String> variables) {
+    public boolean execute(Player player, Map<String, String> variables) {
         String parsed = MessageParser.parse(command, player, variables);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), parsed);
+        return true;
     }
 }

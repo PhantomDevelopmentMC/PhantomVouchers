@@ -18,7 +18,8 @@ public class SoundAction implements IAction {
     }
 
     @Override
-    public void execute(Player player, Map<String, String> variables) {
+    public boolean execute(Player player, Map<String, String> variables) {
         player.playSound(player.getLocation(), sound, volume, pitch);
+        return true;
     }
 }
