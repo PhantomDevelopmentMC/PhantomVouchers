@@ -6,6 +6,7 @@ import me.fergs.phantomvouchers.actions.*;
 import me.fergs.phantomvouchers.actions.impl.*;
 import me.fergs.phantomvouchers.configuration.YamlConfigFile;
 import me.fergs.phantomvouchers.objects.VoucherItem;
+import me.fergs.phantomvouchers.utils.ConsoleUtil;
 import me.fergs.phantomvouchers.utils.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -45,6 +46,7 @@ public final class VoucherManager {
                 VoucherItem voucher = parseVoucher(config, id);
                 if (voucher != null) {
                     vouchers.put(id, voucher);
+                    Bukkit.getLogger().info(ConsoleUtil.translateColors("&6[&e!&6] &eLoaded &f" + id + " &evoucher."));
                 }
             }
         }

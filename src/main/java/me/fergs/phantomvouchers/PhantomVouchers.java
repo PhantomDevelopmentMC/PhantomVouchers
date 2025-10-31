@@ -8,6 +8,7 @@ import me.fergs.phantomvouchers.listeners.PlayerInteractListener;
 import me.fergs.phantomvouchers.managers.ActionManager;
 import me.fergs.phantomvouchers.managers.MessageManager;
 import me.fergs.phantomvouchers.managers.VoucherManager;
+import me.fergs.phantomvouchers.utils.ConsoleUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -24,6 +25,8 @@ public final class PhantomVouchers extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        ConsoleUtil.printAsciiArt();
+
         this.configurationManager = new ConfigurationManager<>(this);
 
         this.configurationManager.loadConfigs(
