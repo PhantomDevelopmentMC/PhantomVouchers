@@ -17,7 +17,7 @@ PhantomVouchers is a Minecraft plugin designed to provide a robust and flexible 
 
 ## Installation
 
-1. Download the latest version of PhantomVouchers from the [releases page](#).
+1. Download the latest version of PhantomVouchers from the [releases page](https://github.com/PhantomDevelopmentMC/PhantomVouchers/releases).
 2. Place the `.jar` file into your server's `plugins` folder.
 3. Restart your server to generate the configuration files.
 4. Configure the plugin by editing the YAML files in the `plugins/PhantomVouchers` directory.
@@ -63,11 +63,6 @@ PhantomVouchers is built with extensibility in mind. Developers can:
 - Add custom actions by implementing the `IAction` interface.
 - Use the `ItemBuilder` utility for creating custom items.
 - Leverage the `ActionManager` for managing and executing actions.
-
-## Known Issues
-
-- Spamming right-click during the confirmation window may cause unexpected behavior.
-- Base64 textures may override display names if not set in the correct order.
 
 ## Contributing
 
