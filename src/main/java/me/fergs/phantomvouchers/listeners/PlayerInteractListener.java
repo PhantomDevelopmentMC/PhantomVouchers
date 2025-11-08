@@ -59,9 +59,6 @@ public final class PlayerInteractListener implements Listener {
             return;
         }
 
-        event.setCancelled(true);
-        event.setUseItemInHand(Event.Result.DENY);
-
         final String playerUUID = player.getUniqueId().toString();
         final long currentTime = System.currentTimeMillis();
 
@@ -76,6 +73,9 @@ public final class PlayerInteractListener implements Listener {
         if (voucher == null) {
             return;
         }
+
+        event.setCancelled(true);
+        event.setUseItemInHand(Event.Result.DENY);
 
         final VoucherItem.VoucherSettings settings = voucher.getSettings();
 
