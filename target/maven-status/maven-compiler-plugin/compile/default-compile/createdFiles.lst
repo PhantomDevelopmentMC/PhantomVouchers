@@ -20,6 +20,7 @@ me\fergs\phantomvouchers\PhantomVouchers.class
 me\fergs\phantomvouchers\commands\AdminCommands.class
 me\fergs\phantomvouchers\utils\ConsoleUtil.class
 me\fergs\phantomvouchers\utils\Color.class
+me\fergs\phantomvouchers\actions\impl\RequirementAction.class
 me\fergs\phantomvouchers\utils\SkullUtils.class
 me\fergs\phantomvouchers\utils\ItemBuilder.class
 me\fergs\phantomvouchers\inventories\VoucherPreviewInventory.class
@@ -37,6 +38,7 @@ me\fergs\phantomvouchers\actions\impl\SoundAction.class
 me\fergs\phantomvouchers\commands\framework\arguments\impl\DoubleArgument.class
 me\fergs\phantomvouchers\commands\framework\arguments\impl\IntegerArgument.class
 me\fergs\phantomvouchers\commands\framework\PhantomCommandFramework$CommandBuilder.class
+me\fergs\phantomvouchers\utils\RequirementParser.class
 me\fergs\phantomvouchers\actions\impl\ActionBarAction.class
 me\fergs\phantomvouchers\managers\VoucherManager.class
 me\fergs\phantomvouchers\utils\RegionUtils.class

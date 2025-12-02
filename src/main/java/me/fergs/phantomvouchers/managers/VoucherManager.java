@@ -32,24 +32,52 @@ public final class VoucherManager {
     }
 
     private void loadVouchers() {
+        vouchers.clear();
+
         File vouchersFolder = new File(plugin.getDataFolder(), "vouchers");
         if (!vouchersFolder.exists()) {
             vouchersFolder.mkdirs();
             plugin.saveResource("vouchers/test-voucher.yml", false);
         }
+        loadVouchersFromDirectory(vouchersFolder);
 
-        File[] files = vouchersFolder.listFiles((dir, name) -> name.endsWith(".yml"));
-        if (files != null) {
-            for (File file : files) {
+        Bukkit.getLogger().info(ConsoleUtil.translateColors("&6[&e!&6] &eLoaded &f" + vouchers.size() + " &evoucher(s) total."));
+    }
+
+    private void loadVouchersFromDirectory(File directory) {
+        if (!directory.exists() || !directory.isDirectory()) {
+            return;
+        }
+
+        File[] files = directory.listFiles();
+        if (files == null) {
+            return;
+        }
+
+        for (File file : files) {
+            if (file.isDirectory()) {
+                loadVouchersFromDirectory(file);
+            } else if (file.isFile() && file.getName().endsWith(".yml")) {
                 String id = file.getName().replace(".yml", "");
                 YamlConfigFile config = YamlConfigFile.loadConfiguration(file);
                 VoucherItem voucher = parseVoucher(config, id);
                 if (voucher != null) {
                     vouchers.put(id, voucher);
-                    Bukkit.getLogger().info(ConsoleUtil.translateColors("&6[&e!&6] &eLoaded &f" + id + " &evoucher."));
+                    Bukkit.getLogger().info(ConsoleUtil.translateColors("&6[&e!&6] &eLoaded &f" + id + " &evoucher from &f" + getRelativePath(file)));
                 }
             }
         }
+    }
+
+    private String getRelativePath(File file) {
+        File vouchersFolder = new File(plugin.getDataFolder(), "vouchers");
+        String voucherPath = vouchersFolder.getAbsolutePath();
+        String filePath = file.getAbsolutePath();
+
+        if (filePath.startsWith(voucherPath)) {
+            return filePath.substring(voucherPath.length() + 1);
+        }
+        return file.getName();
     }
 
     private VoucherItem parseVoucher(YamlConfigFile config, String id) {
