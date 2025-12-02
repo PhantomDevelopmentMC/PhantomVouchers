@@ -74,7 +74,7 @@ public class VoucherPreviewInventory extends PaginatedFastInv implements Listene
             lore.addAll(voucher.getItem().getLore());
         }
         lore.add("");
-        lore.add("&6&l&m------------------------------");
+        lore.add("&6&l&m                                         ");
         lore.add(me.fergs.phantomvouchers.utils.Color.hex("&e&lActions:"));
         lore.add(me.fergs.phantomvouchers.utils.Color.hex("&fLeft Click &8- &6Receive Voucher"));
         builder.setLore(lore);

@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -81,7 +80,16 @@ public final class PlayerInteractListener implements Listener {
 
         final Map<String, String> variables = new HashMap<>();
 
-        if (Boolean.TRUE.equals(settings.getAdditionalConfirmation())) {
+        if (player.isSneaking()) {
+            if (canRedeem(player, voucher)) {
+                int amount = item.getAmount();
+                for (int i = 0; i < amount; i++) {
+                    Map<String, String> executionVariables = new HashMap<>(variables);
+                    actionManager.execute(player, voucher.getRedeemActions(), executionVariables);
+                }
+                item.setAmount(0);
+            }
+        } else if (Boolean.TRUE.equals(settings.getAdditionalConfirmation())) {
             final String key = playerUUID + ":" + voucherId;
             final Long timestamp = pendingConfirmations.get(key);
 

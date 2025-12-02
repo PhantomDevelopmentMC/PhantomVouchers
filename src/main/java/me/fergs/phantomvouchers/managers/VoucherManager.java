@@ -74,6 +74,8 @@ public final class VoucherManager {
             return new MessageAction(actionString.substring(10));
         } else if (actionString.startsWith("[COMMAND] ")) {
             return new CommandAction(actionString.substring(10));
+        } else if (actionString.startsWith("[REQUIREMENT] ")) {
+            return new RequirementAction(actionString.substring(14));
         } else if (actionString.startsWith("[SOUND] ")) {
             String[] parts = actionString.substring(8).split(";");
             if (parts.length >= 1) {
