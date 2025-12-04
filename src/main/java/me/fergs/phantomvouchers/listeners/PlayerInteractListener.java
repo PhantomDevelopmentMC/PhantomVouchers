@@ -51,6 +51,10 @@ public final class PlayerInteractListener implements Listener {
         }
 
         final ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            return;
+        }
+
         final PersistentDataContainer pdc = meta.getPersistentDataContainer();
         final String voucherId = pdc.get(voucherKey, PersistentDataType.STRING);
 
