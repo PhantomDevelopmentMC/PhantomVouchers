@@ -15,8 +15,10 @@ item:
     - "&3 ┣ &bType: &fOne-Time-Use"
     - ""
     - "&7&o((&f&o Right-Click &7&oto redeem this voucher ))"
-  # The commands to send.
-  enchantments: []
+  # To create a glow effect, add an enchantment and use HIDE_ENCHANTS flag.
+  # The enchantment won't show, but the glow will remain!
+  enchantments:
+    'unbreaking': 1
   item-flags:
     - 'HIDE_ENCHANTS'
 

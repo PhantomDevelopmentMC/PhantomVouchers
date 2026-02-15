@@ -46,7 +46,7 @@ public final class PlayerInteractListener implements Listener {
         final ItemStack item = event.getItem();
         final EquipmentSlot hand = event.getHand();
 
-        if (item == null || !event.getAction().isRightClick() || hand != EquipmentSlot.HAND) {
+        if (item == null || hand != EquipmentSlot.HAND || !event.getAction().isRightClick()) {
             return;
         }
 
@@ -56,6 +56,10 @@ public final class PlayerInteractListener implements Listener {
         }
 
         final PersistentDataContainer pdc = meta.getPersistentDataContainer();
+        
+        if (pdc == null) {
+            return;
+        }
         final String voucherId = pdc.get(voucherKey, PersistentDataType.STRING);
 
         if (voucherId == null) {
